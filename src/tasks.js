@@ -49,6 +49,13 @@ document.getElementById('showComplete').addEventListener('change', ({target}) =>
   tasksDispatcher.dispatch(new ShowTasksActionFactory().create(showComplete))
 })
 
+// This should really be implemented as an action itself, otherwise
+// you are unable to undo the undo
+document.forms.undo.addEventListener('submit', e => {
+  e.preventDefault() // Stop the page from refreshing
+  tasksStore.revertToLastState()
+})
+
 tasksStore.addListener(() => render())
 
 tasksDispatcher.dispatch('TEST_DISPATCH')
