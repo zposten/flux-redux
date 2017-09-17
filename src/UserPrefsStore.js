@@ -4,10 +4,9 @@ import { UpdateFontSizeActionFactory } from './actions'
 
 export class UserPrefsStore extends Store {
   getInitialState() {
-    return {
-      username: 'Zach',
-      fontSize: 'small'
-    }
+    let prefs = localStorage['preferences']
+    return prefs ? JSON.parse(prefs)
+                 : { userName: 'Zach', fontSize: 'small' }
   }
 
   __onDispatch(action) {

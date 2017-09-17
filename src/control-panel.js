@@ -24,6 +24,7 @@ document.forms.fontSizeForm.fontSize.forEach(element => {
 userPrefsStore.addListener((state) => {
   console.info('The current state is ...', state)
   render(state)
+  localStorage['preferences'] = JSON.stringify(state)
 })
 
 const render = ({userName, fontSize}) => {
@@ -36,4 +37,4 @@ const render = ({userName, fontSize}) => {
   }
 }
 
-controlPanelDispatcher.register(action => console.info("Received action...", action))
+render(userPrefsStore.getUserPreferences())
