@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --content-base public/ --inline"
+    "start": "webpack-dev-server --content-base public/ --inline --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {  },
+  "dependencies": {
+    "shortid": "^2.2.6"
+  },
   "engine": "node 7.2.0",
   "devDependencies": {
     "babel-core": "^6.18.2",
